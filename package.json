@@ -1,0 +1,47 @@
+{
+  "name": "space-mission-timeline",
+  "version": "1.0.0",
+  "description": "An interactive timeline showcasing humanity's greatest space missions",
+  "main": "dist/index.js",
+  "homepage": "https://django228.github.io/space-mission-timeline",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/django228/space-mission-timeline.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "space",
+    "missions",
+    "timeline",
+    "spacex",
+    "nasa",
+    "interactive"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.5.3",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}

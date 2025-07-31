@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  color: white;
+  position: relative;
+}
+
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(78, 205, 196, 0.1), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(69, 183, 209, 0.1), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(150, 206, 180, 0.1), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(78, 205, 196, 0.1), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(69, 183, 209, 0.1), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: backgroundFloat 30s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes backgroundFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-200px); }
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.error-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 500px;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.error-content h2 {
+  color: #ff6b6b;
+  margin: 0 0 15px 0;
+  font-size: 1.8rem;
+}
+
+.error-content p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 25px 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.retry-button {
+  background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
+}
+
+.no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 20px;
+}
+
+.no-results-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 400px;
+}
+
+.no-results-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.no-results-content h3 {
+  color: #4ecdc4;
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+}
+
+.no-results-content p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4ecdc4, #45b7d1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #45b7d1, #4ecdc4);
+}
+
+::selection {
+  background: rgba(78, 205, 196, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(78, 205, 196, 0.3);
+  color: white;
+}
+
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #4ecdc4;
+  outline-offset: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+  animation: fadeInImage 0.5s ease forwards;
+}
+
+@keyframes fadeInImage {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .error-content {
+    padding: 30px 20px;
+  }
+  
+  .error-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .no-results-content {
+    padding: 30px 20px;
+  }
+  
+  .no-results-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .app {
+    background: #000;
+  }
+  
+  .error-content,
+  .no-results-content {
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+}

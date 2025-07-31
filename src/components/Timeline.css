@@ -1,0 +1,143 @@
+.timeline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+}
+
+.timeline {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #4ecdc4 10%,
+    #45b7d1 30%,
+    #96ceb4 50%,
+    #4ecdc4 70%,
+    #45b7d1 90%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.4);
+  animation: timelinePulse 4s ease-in-out infinite;
+}
+
+@keyframes timelinePulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.4);
+    transform: translateX(-50%) scaleY(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(78, 205, 196, 0.7);
+    transform: translateX(-50%) scaleY(1.02);
+  }
+}
+
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #4ecdc4, #45b7d1);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(78, 205, 196, 0.8);
+  animation: startPulse 2s ease-in-out infinite;
+}
+
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #96ceb4, #4ecdc4);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(150, 206, 180, 0.8);
+  animation: endPulse 2s ease-in-out infinite;
+}
+
+@keyframes startPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+@keyframes endPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(78, 205, 196, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(69, 183, 209, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(150, 206, 180, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(78, 205, 196, 0.3), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(69, 183, 209, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: floatParticles 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 35px;
+    transform: none;
+  }
+  
+  .timeline-line::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-line::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-container {
+    padding: 0 15px;
+  }
+}
