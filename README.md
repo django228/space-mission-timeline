@@ -102,5 +102,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [React Documentation](https://react.dev)
 
 ---
-
-Made with ❤️ and ☕ for space enthusiasts everywhere!
