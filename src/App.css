@@ -30,21 +30,14 @@ body {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(2px 2px at 20px 30px, rgba(78, 205, 196, 0.1), transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(69, 183, 209, 0.1), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(150, 206, 180, 0.1), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(78, 205, 196, 0.1), transparent),
-    radial-gradient(2px 2px at 160px 30px, rgba(69, 183, 209, 0.1), transparent);
+    radial-gradient(2px 2px at 20px 30px, rgba(78, 205, 196, 0.05), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(69, 183, 209, 0.05), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(150, 206, 180, 0.05), transparent);
   background-repeat: repeat;
-  background-size: 200px 100px;
-  animation: backgroundFloat 30s linear infinite;
+  background-size: 400px 200px;
   pointer-events: none;
   z-index: 0;
-}
-
-@keyframes backgroundFloat {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-200px); }
+  will-change: auto;
 }
 
 .app > * {
@@ -226,7 +219,7 @@ img[loading="lazy"] {
   }
 }
 
-@media (prefers-contrast: high) {
+@media (prefers-contrast: less) {
   .app {
     background: #000;
   }

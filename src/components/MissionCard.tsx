@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useMemo } from 'react';
 import { Mission } from '../types/Mission';
 import './MissionCard.css';
 
@@ -8,7 +8,7 @@ interface MissionCardProps {
   onClick: () => void;
 }
 
-const MissionCard: React.FC<MissionCardProps> = ({ mission, isSelected, onClick }) => {
+const MissionCard: React.FC<MissionCardProps> = memo(({ mission, isSelected, onClick }) => {
   const [imageError, setImageError] = useState(false);
   const [patchError, setPatchError] = useState(false);
 
@@ -44,14 +44,16 @@ const MissionCard: React.FC<MissionCardProps> = ({ mission, isSelected, onClick 
     }
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
+  const memoizedValues = useMemo(() => ({
+    statusColor: getStatusColor(mission.status),
+    statusText: getStatusText(mission.status),
+    typeIcon: getTypeIcon(mission.type),
+    formattedDate: new Date(mission.date).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric'
-    });
-  };
+    })
+  }), [mission.status, mission.type, mission.date]);
 
   const handleImageError = () => {
     setImageError(true);
@@ -63,8 +65,8 @@ const MissionCard: React.FC<MissionCardProps> = ({ mission, isSelected, onClick 
 
   return (
     <div className={`mission-card ${isSelected ? 'selected' : ''}`} onClick={onClick}>
-      <div className="mission-marker" style={{ backgroundColor: getStatusColor(mission.status) }}>
-        {getTypeIcon(mission.type)}
+      <div className="mission-marker" style={{ backgroundColor: memoizedValues.statusColor }}>
+        {memoizedValues.typeIcon}
       </div>
       
       <div className="mission-content">
@@ -80,7 +82,7 @@ const MissionCard: React.FC<MissionCardProps> = ({ mission, isSelected, onClick 
         )}
         
         <div className="mission-header">
-          <div className="mission-date">{formatDate(mission.date)}</div>
+          <div className="mission-date">{memoizedValues.formattedDate}</div>
           <h3 className="mission-name">{mission.name}</h3>
           <div className="mission-agency">{mission.agency}</div>
         </div>
@@ -120,9 +122,9 @@ const MissionCard: React.FC<MissionCardProps> = ({ mission, isSelected, onClick 
         </div>
 
         <div className="mission-footer">
-          <div className="mission-status" style={{ color: getStatusColor(mission.status) }}>
-            <div className="status-indicator" style={{ backgroundColor: getStatusColor(mission.status) }}></div>
-            {getStatusText(mission.status)}
+          <div className="mission-status" style={{ color: memoizedValues.statusColor }}>
+            <div className="status-indicator" style={{ backgroundColor: memoizedValues.statusColor }}></div>
+            {memoizedValues.statusText}
           </div>
           
           {mission.missionPatch && !patchError && (
@@ -138,6 +140,8 @@ const MissionCard: React.FC<MissionCardProps> = ({ mission, isSelected, onClick 
       </div>
     </div>
   );
-};
+});
+
+MissionCard.displayName = 'MissionCard';
 
 export default MissionCard;

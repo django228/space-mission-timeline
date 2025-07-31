@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Mission } from './types/Mission';
 import { SpaceApiService } from './services/spaceApi';
 import Header from './components/Header';
@@ -10,7 +10,6 @@ import './App.css';
 
 const App: React.FC = () => {
   const [missions, setMissions] = useState<Mission[]>([]);
-  const [filteredMissions, setFilteredMissions] = useState<Mission[]>([]);
   const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,15 +19,7 @@ const App: React.FC = () => {
   const [filterAgency, setFilterAgency] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  useEffect(() => {
-    loadMissions();
-  }, []);
-
-  useEffect(() => {
-    applyFilters();
-  }, [missions, filterType, filterStatus, filterAgency, searchTerm]);
-
-  const loadMissions = async () => {
+  const loadMissions = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -59,9 +50,13 @@ const App: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
-  const applyFilters = () => {
+  useEffect(() => {
+    loadMissions();
+  }, [loadMissions]);
+
+  const filteredMissions = useMemo(() => {
     let filtered = missions;
 
     if (filterType !== 'all') {
@@ -87,16 +82,16 @@ const App: React.FC = () => {
       );
     }
 
-    setFilteredMissions(filtered);
-  };
+    return filtered;
+  }, [missions, filterType, filterStatus, filterAgency, searchTerm]);
 
-  const handleMissionSelect = (mission: Mission) => {
+  const handleMissionSelect = useCallback((mission: Mission) => {
     setSelectedMission(mission);
-  };
+  }, []);
 
-  const handleCloseDetail = () => {
+  const handleCloseDetail = useCallback(() => {
     setSelectedMission(null);
-  };
+  }, []);
 
   if (error) {
     return (
