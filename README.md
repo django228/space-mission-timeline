@@ -6,7 +6,7 @@ An interactive timeline showcasing humanity's greatest space missions, built wit
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue)
 ![Webpack](https://img.shields.io/badge/Webpack-5.101.0-blue)
 
-## ✨ Features
+## Features
 
 - **Interactive Timeline**: Beautiful animated timeline with space missions
 - **Real Data**: Fetches live data from SpaceX API (30+ missions)
@@ -16,7 +16,7 @@ An interactive timeline showcasing humanity's greatest space missions, built wit
 - **Beautiful Animations**: Smooth CSS animations and transitions
 - **Mission Photos**: Real mission images and patches
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** with TypeScript
 - **Webpack 5** for bundling
@@ -24,7 +24,7 @@ An interactive timeline showcasing humanity's greatest space missions, built wit
 - **SpaceX API** for mission data
 - **Modern ES6+** features
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -56,62 +56,17 @@ npm start
 npm run build
 ```
 
-## 📱 Screenshots
-
-### Desktop View
-The timeline displays missions in a beautiful alternating layout with animated markers.
-
-### Mobile View
-Responsive design adapts perfectly to mobile devices with optimized touch interactions.
-
-### Mission Details
-Detailed modal windows show comprehensive mission information including:
-- Launch date and time
-- Mission status and success rate
-- Rocket information
-- Launch site details
-- Crew members (for crewed missions)
-- Mission patches and photos
-
-## 🎯 Mission Types
-
-- **🚀 Launch**: Rocket launches and satellite deployments
-- **🛬 Landing**: Planetary landings and surface missions
-- **🛰️ Orbit**: Orbital missions and space stations
-- **🌌 Flyby**: Planetary flybys and deep space missions
-- **👨‍🚀 Crewed**: Human spaceflight missions
-
-## 🔧 Available Scripts
+## Available Scripts
 
 - `npm start` - Start development server
 - `npm run build` - Build for production
 - `npm run dev` - Start development server with auto-open
 - `npm run deploy` - Deploy to GitHub Pages
 
-## 🌟 Key Components
-
-### Architecture
-- **Header**: Animated header with mission statistics
-- **MissionFilters**: Advanced filtering and search functionality
-- **Timeline**: Main timeline component with mission cards
-- **MissionCard**: Individual mission display cards
-- **MissionDetail**: Detailed mission information modal
-- **Loading**: Beautiful loading animation
-
 ### API Integration
 - Fetches real-time data from SpaceX API
 - Fallback data for offline functionality
 - Image loading with lazy loading support
-
-## 🎨 Design Features
-
-- **Dark Space Theme**: Beautiful gradient backgrounds
-- **Animated Elements**: Floating particles and smooth transitions
-- **CSS Icons**: Custom-designed icons replacing emojis
-- **Glassmorphism**: Modern glass-like UI elements
-- **Responsive Grid**: Adaptive layouts for all screen sizes
-
-## 🚀 Deployment
 
 ### GitHub Pages
 This project is automatically deployed to GitHub Pages:
@@ -126,10 +81,7 @@ npm run build
 npm run deploy
 ```
 
-### Vercel/Netlify
-The project is also compatible with modern deployment platforms like Vercel and Netlify.
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -141,12 +93,7 @@ The project is also compatible with modern deployment platforms like Vercel and 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- **SpaceX API** for providing mission data
-- **NASA** for space mission inspiration
-- **React Team** for the amazing framework
-- **Space exploration community** for inspiration
+---
 
 ## 🔗 Links
 
