@@ -1,0 +1,36 @@
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #444;
+  margin-left: -1px;
+}
+
+.mission-wrapper {
+  width: 50%;
+  position: relative;
+  padding: 0 20px;
+}
+
+.mission-wrapper.left {
+  float: left;
+  text-align: left;
+}
+
+.mission-wrapper.right {
+  float: right;
+  text-align: left;
+}
+
+.clearfix {
+  clear: both;
+}

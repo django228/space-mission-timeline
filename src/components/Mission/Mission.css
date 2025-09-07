@@ -1,0 +1,88 @@
+.mission-card {
+  border: 1px solid #444; 
+  margin: 25px 0; 
+  padding: 15px;
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mission-card.selected {
+  background-color: #2c3e50;
+}
+
+.mission-marker {
+  position: absolute;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #444;
+  border: 2px solid #0a0a2a;
+}
+
+.mission-marker.left {
+  right: -27px;
+}
+
+.mission-marker.right {
+  left: -27px;
+}
+
+.mission-marker.selected {
+  background-color: #4ecdc4;
+}
+
+.mission-title {
+  margin: 0 0 8px 0; 
+  color: #4ecdc4;
+  font-size: 1.1rem;
+}
+
+.mission-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #4ecdc4;
+  margin-bottom: 10px;
+  display: block;
+.mission-patch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #4ecdc4;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+
+.mission-date {
+  margin: 5px 0; 
+  color: #ccc;
+ font-size: 0.85rem;
+}
+
+.mission-status {
+  margin: 5px 0; 
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.mission-status.success {
+  color: #4ecdc4;
+}
+
+.mission-status.failed {
+  color: #f44336;
+}
+
+.mission-description {
+  margin: 8px 0; 
+  color: #aaa;
+  font-size: 0.8rem;
+ line-height: 1.4;
+}

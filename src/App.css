@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #0a0a2a;
+  background: linear-gradient(135deg, #0a0a2a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e0e0;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.cosmic-glow {
+  box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+}
+
+.cosmic-border {
+  border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.smooth-transition {
+  transition: all 0.3s ease;
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
